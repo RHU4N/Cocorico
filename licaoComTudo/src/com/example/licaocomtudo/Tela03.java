@@ -1,0 +1,143 @@
+package com.example.licaocomtudo;
+
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Vibrator;
+import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationCompat.Builder;
+import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class Tela03 extends Activity {
+	
+	private static final Vibrator Vibrator = null;
+	ListView listView;
+	int[] img={R.drawable.i1,R.drawable.i2,R.drawable.i3};
+	String[] produtos={"Grelhado","Frito","Mais comprado"};
+	
+	public class AdapImg extends BaseAdapter{
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return img.length;
+		}
+
+		@Override
+		public Object getItem(int arg0) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public long getItemId(int arg0) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		@Override
+		public View getView(int arg0, View arg1, ViewGroup arg2) {
+			// TODO Auto-generated method stub
+			View view = getLayoutInflater().inflate(R.layout.modelo_lista, null);
+			ImageView imagem = (ImageView) view.findViewById(R.id.imageView1);
+			TextView texto = (TextView) view.findViewById(R.id.textViewMode);
+			
+			imagem.setImageResource(img[arg0]);
+			texto.setText(produtos[arg0]);
+			return view;
+		}
+		
+	}
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_tela03);
+		
+		final Button botao = (Button) findViewById(R.id.buttonBuy);
+		final Vibrator vibra=(Vibrator) 
+		Tela03.this.getSystemService(Context.VIBRATOR_SERVICE);
+		
+		listView = (ListView)findViewById(R.id.listView1);
+		AdapImg obj = new AdapImg();
+		listView.setAdapter(obj);
+		
+		botao.setOnClickListener(new Button.OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				NotificationManager nm=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+				PendingIntent p= PendingIntent.getActivity(Tela03.this, 0,
+						new Intent(Tela03.this, Tela02.class), 0);
+				NotificationCompat.Builder builder = new NotificationCompat.Builder(Tela03.this);
+				builder.setTicker("Cocorico");
+				builder.setContentTitle("Cocorico Pedidos");
+				builder.setContentText("Pedido efetuado");
+				builder.setSmallIcon(R.drawable.fcolor);
+				builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.fcolor));
+				builder.setContentIntent(p);
+				Notification n =builder.build();
+				nm.notify(R.drawable.fcolor,n);
+				
+				vibra.vibrate(500);
+				
+				Toast.makeText(Tela03.this, "Mapa", Toast.LENGTH_SHORT).show();
+		    	Uri uri = Uri.parse("https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwju47f7mqb6AhVzCbkGHVVmBUoQFnoECBoQAQ&url=https%3A%2F%2Fwww.google.com.br%2Fmaps%2Fpreview&usg=AOvVaw3XiZT2Czoaaw_BJV5WUE4M");
+		    	Intent it= new Intent(Intent.ACTION_VIEW, uri);
+		    	startActivity(it);
+				
+			}
+			
+		});
+		
+		
+	}
+	
+//	public void comprar(View v)
+//	{
+//		NotificationManager nm=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+//		PendingIntent p= PendingIntent.getActivity(Tela03.this, 0,
+//				new Intent(Tela03.this, Tela02.class), 0);
+//		NotificationCompat.Builder builder = new NotificationCompat.Builder(Tela03.this);
+//		builder.setTicker("Cocorico");
+//		builder.setContentTitle("Cocorico Pedidos");
+//		builder.setContentText("Pedido efetuado");
+//		builder.setSmallIcon(R.drawable.ic_launcher);
+//		builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher));
+//		builder.setContentIntent(p);
+//		Notification n =builder.build();
+//		nm.notify(R.drawable.ic_launcher,n);
+//		
+//		
+//	}
+	
+	public void volta(View v)
+	{
+		Intent intent = new Intent(Tela03.this, Tela02.class);
+    	startActivity(intent);
+    	finish();
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.tela03, menu);
+		return true;
+	}
+
+}

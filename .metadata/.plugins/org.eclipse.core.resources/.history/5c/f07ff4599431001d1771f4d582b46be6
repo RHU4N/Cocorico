@@ -1,0 +1,114 @@
+package com.example.licaocomtudo;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
+import android.widget.ViewSwitcher;
+
+public class Tela02 extends Activity {
+	private ImageSwitcher sw;
+	private Button b1,b2;
+	int i=1;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_tela02);
+		
+		b1 = (Button) findViewById(R.id.button1);
+		b2 = (Button) findViewById(R.id.button2);
+		sw = (ImageSwitcher) findViewById(R.id.imageSwitcher1);
+		sw.setFactory(new ViewSwitcher.ViewFactory() {
+			
+			@Override
+			public View makeView() {
+				// TODO Auto-generated method stub
+				ImageView myView = new ImageView(getApplicationContext());
+				myView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+				return myView;
+			}
+		});
+		b1.setOnClickListener(new Button.OnClickListener()
+		{
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				switch (i) {
+				case 1:
+					    i++;
+					    sw.setImageResource(R.drawable.i2);
+					break;
+					
+				case 2:
+				    i++;
+				    sw.setImageResource(R.drawable.i3);
+				break;	
+				
+				case 3:
+				    i++;
+				    sw.setImageResource(R.drawable.i4);
+				break;
+				
+				case 4:
+				    i++;
+				    sw.setImageResource(R.drawable.i1);
+				break;
+
+				default:
+				    sw.setImageResource(R.drawable.i1);
+				    i=1;
+					break;
+				}
+			}
+			
+		});
+		b2.setOnClickListener(new Button.OnClickListener()
+		{
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				switch (i) {
+				case 1:
+					    i--;
+					    sw.setImageResource(R.drawable.i1);
+					break;
+					
+				case 2:
+				    i--;
+				    sw.setImageResource(R.drawable.i2);
+				break;	
+				
+				case 3:
+				    i--;
+				    sw.setImageResource(R.drawable.i3);
+				break;
+				
+				case 4:
+				    i--;
+				    sw.setImageResource(R.drawable.i4);
+				break;
+
+				default:
+				    sw.setImageResource(R.drawable.i1);
+				    i=1;
+					break;
+				}
+			}
+			
+		});
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.tela02, menu);
+		return true;
+	}
+
+}

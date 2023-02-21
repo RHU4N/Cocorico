@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="android.view.Window"/>
+<fullyQualifiedTypeName name="android.os.Handler"/>
+<fullyQualifiedTypeName name="java.lang.Runnable"/>
+<fullyQualifiedTypeName name="android.widget.Button"/>
+<fullyQualifiedTypeName name="android.widget.ImageSwitcher"/>
+<fullyQualifiedTypeName name="android.widget.ViewSwitcher"/>
+<fullyQualifiedTypeName name="android.widget.ViewSwitcher.ViewFactory"/>
+<fullyQualifiedTypeName name="android.widget.ImageView.ScaleType"/>
+<fullyQualifiedTypeName name="com.example.licaocomtudo.R.drawable"/>
+<fullyQualifiedTypeName name="android.widget.BaseAdapter"/>
+<fullyQualifiedTypeName name="com.example.licaocomtudo.R.layout"/>
+<fullyQualifiedTypeName name="android.widget.ImageView"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="android.widget.ListView"/>
+<fullyQualifiedTypeName name="com.example.licaocomtudo.R.id"/>
+<fullyQualifiedTypeName name="com.example.licaocomtudo.Tela03.AdapImg"/>
+<fullyQualifiedTypeName name="android.app.NotificationManager"/>
+<fullyQualifiedTypeName name="android.app.PendingIntent"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="com.example.licaocomtudo.Tela02"/>
+<fullyQualifiedTypeName name="android.support.v4.app.NotificationCompat"/>
+<fullyQualifiedTypeName name="android.support.v4.app.NotificationCompat.Builder"/>
+<fullyQualifiedTypeName name="android.os.Vibrator"/>
+<fullyQualifiedTypeName name="com.example.licaocomtudo.Tela03"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="com.example.licaocomtudo.Tela04"/>
+</qualifiedTypeNameHistroy>
